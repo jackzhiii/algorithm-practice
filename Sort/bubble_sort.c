@@ -15,12 +15,12 @@ int * bubble_sort(int *arr, int length)
 
     int temp, i, j;
     for(i = 0; i < length - 1; i++) {
-        for (j = i + 1; j < length; j++) {
-            if (arr[i] > arr[j])
+        for (j = 0; j < length - 1 - i; j++) {
+            if (arr[j] > arr[j+1])
             {
                 temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
             }
         }
     }
@@ -42,11 +42,11 @@ int main(int argc, char const *argv[])
 {
     int origin_arr[SIZE] = {2, 4, 11, 12, -2, 0, 23, 4};
 
-    int *sort_arr;
-    sort_arr = bubble_sort(origin_arr, SIZE);
-
     printf("%s\n", "sort bufort:");
     display(origin_arr, SIZE);
+
+    int *sort_arr;
+    sort_arr = bubble_sort(origin_arr, SIZE);
 
     printf("%s\n", "after sort");
     display(sort_arr, SIZE);
